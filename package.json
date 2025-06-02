@@ -1,0 +1,20 @@
+{
+  "name": "backend_express",
+  "version": "1.0.0",
+  "description": "backend for sign up and login page",
+  "main": "index.js",
+  "author": "Sukhdeep singh",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.1"
+  },
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
