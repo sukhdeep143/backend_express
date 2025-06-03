@@ -17,7 +17,8 @@ app.get("/", (req, res) => {
 
 app.post("/register",async (req, res) => {
   try {
-    const userCreated = await userSchema.create(req.body)
+    const userCreated = await userSchema.create(req.body, console.log(req.body)
+    )
     res.status(201).json({message: "User is created", user: userCreated})
   
     
