@@ -4,6 +4,11 @@ const app = express();
 const userSchema = require("./models/user.moduls.js")
 require("dotenv").config();
 
+
+const cors = require("cors");
+app.use(cors());
+
+
 const mongo_url = process.env.MONGO_URL;
 app.use(express.json());
 app.get("/", (req, res) => {
@@ -13,14 +18,14 @@ app.get("/", (req, res) => {
 app.post("/register",async (req, res) => {
   try {
     const userCreated = await userSchema.create(req.body)
-    res.status(201).json({message: "User is created"})
-    res.send(userCreated)
+    res.status(201).json({message: "User is created", user: userCreated})
+  
     
   } catch (error) {
    res.status(500).json({message: error.message}) 
   }
 
-});
+}); 
 
 app.get("/user", async (req, res) => {
   try {
@@ -40,8 +45,8 @@ mongoose
   .connect(mongo_url)
   .then(() => {
     console.log("Connected to database");
-    app.listen(3000, () => {
-      console.log("We are listing on port 3000");
+    app.listen(5000, () => {
+      console.log("We are listing on port 5000");
     });
   })
   .catch(() => {
